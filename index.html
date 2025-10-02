@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <!-- region favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Campfire</title>
+  </head>
+  <body class="p-0 m-0 border-0 bd-example m-0 border-0">
+    <nav class="navbar navbar-expand navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="../">
+          <img src="/android-chrome-192x192.png" alt="Chandan Kumar" 
+              width="32" height="32" style="border-radius: 5px;">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link " aria-current="page" href="../">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="#"><span>&#128293;</span> Campfire</a>
+            </li>
+            <li class="nav-item">
+              <button class="btn btn-outline-success" 
+                data-bs-toggle="modal" data-bs-target="#gameHelpModal">Help</button>
+            </li>
+            <li class="nav-item dropdown" id="game-state--level-nav">
+              
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div id="mainContent">
+      <canvas class="webgl"></canvas>
+    </div>
+    <script type="module" src="/src/Campfire.ts"></script>
+
+    <!-- Modal for Next Level -->
+    <div class="modal fade" id="gameLevelCompleteModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="staticBackdropLabel">Level Completed</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary game-action--button" data-action="main-menu" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary game-action--button" data-action="next-level" data-bs-dismiss="modal">Next Level</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--Modal for help-->
+    <div class="modal fade" id="gameHelpModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="staticBackdropLabel">Welcome</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            
+          </div>
+          <div class="modal-footer">
+            <!-- game-action--button -->
+            <button type="button" class="btn btn-primary game-action--button" data-action="close" data-bs-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--Modal for completing all levels-->
+  </body>
+</html>

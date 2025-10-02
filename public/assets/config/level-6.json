@@ -1,0 +1,73 @@
+{
+    "level": "6",
+    "model": "../assets/models/scene4.2_export6.glb",
+    "layout":
+    [
+        [0,  0,  0,  0,  0,  0,  0,  0],
+        [0,  0,  0,  0,  0,  0,  0,  0],
+        [0,  0,  0,  0,  0,  0,  0,  0],
+        [21, 0,101, 31,  0,104,  0, 14],
+        [0,  0,  0,  0,  0,  0,  0,  0],
+        [0,  0,102,  0,  0,101,  0,  0],
+        [0,  0,  0,  0,  0,  0,  0,  0],
+        [0,  0,  0,  0,  0,  0,  0,  0]
+    ],
+    "gem":
+    [
+        {
+            "symbol": "0",
+            "type": "-",
+            "description": "Base Grid, nothing"
+        },
+        {
+            "symbol": "11",
+            "type": "light_source_top",
+            "description": "Light Source"
+        },
+        {
+            "symbol": "12",
+            "type": "light_source_right",
+            "description": "Light Source"
+        },
+        {
+            "symbol": "13",
+            "type": "light_source_bottom",
+            "description": "Light Source"
+        },
+        {
+            "symbol": "14",
+            "type": "light_source_left",
+            "description": "Light Source"
+        },
+        {
+            "symbol": "21",
+            "type": "light_destination",
+            "description": "Light Target"
+        },
+        {
+            "symbol": "31",
+            "type": "light_obstacle",
+            "description": "Light Obstacle"
+        },
+        {
+            "symbol": "101",
+            "type": "clickable_gem_00_top",
+            "description": "Light modifier"
+        },
+        {
+            "symbol": "102",
+            "type": "clickable_gem_00_right",
+            "description": "Light modifier"
+        },
+        {
+            "symbol": "103",
+            "type": "clickable_gem_00_bottom",
+            "description": "Light modifier"
+        },
+        {
+            "symbol": "104",
+            "type": "clickable_gem_00_left",
+            "description": "Light modifier"
+        }
+    ]
+}

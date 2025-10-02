@@ -1,0 +1,21 @@
+<a class="nav-link dropdown-toggle" href="#" 
+    role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Level {{currentLevel}}
+</a>
+<ul class="dropdown-menu">
+    {{#each allLevels}}
+        <li>
+            <a class="dropdown-item game-action--button {{#if isCurrentLevel}} border border-success {{/if}}" href="#" 
+                {{#unless isCurrentLevel}} 
+                    data-action="navigate-level" data-action-value="{{levelNum}}"
+                {{/unless}}  
+
+                {{#if isCurrentLevel}}
+                    style="border-radius: 5px; font-weight: bold; font-style: italic;"
+                {{/if}}  
+                >
+                Level {{levelNum}} {{#if isLastLevel}} final {{/if}}
+            </a>
+        </li>
+    {{/each}}
+</ul>
