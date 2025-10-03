@@ -1,5 +1,6 @@
 import * as THREE from 'three';
-import { OrbitControls } from 'three/examples/jsm/Addons.js';
+
+import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 
 import { EffectComposer } from 'three/addons/postprocessing/EffectComposer.js';
@@ -251,6 +252,10 @@ export class GameEngine {
 
                 }, 0);
                 
+            }, 
+            (xhr) => {
+                // TODO: use loading progress to show a nice progress bar
+                console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' );
             });
         })
         .catch((error) => {
