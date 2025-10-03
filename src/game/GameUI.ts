@@ -110,6 +110,9 @@ export class GameUI {
                     cs.settings.shadowType = 
                         (this._helpEl.querySelector("#game-setting--shadow-type") as HTMLInputElement)
                         .value;
+                    cs.settings.showFps = 
+                        (this._helpEl.querySelector("#game-setting--enable-fps-checkbox") as HTMLInputElement)
+                        .checked;
                     
                     gs.updateState(cs);
                     window.location.reload();

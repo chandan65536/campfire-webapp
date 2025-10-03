@@ -2,7 +2,6 @@ import './scss/styles.scss';
 
 import Stats from 'three/examples/jsm/libs/stats.module.js';
 import { GameEngine } from './game/GameEngine';
-import { UserGameState } from './game/UserGameState';
 
 function onReady(callback: () => void): void {
   if (document.readyState !== 'loading') {
@@ -28,7 +27,7 @@ onReady(() => {
   mainGame.setupScene();
 
   let stats = new Stats();
-  let showFps = false;
+  let showFps = mainGame.shouldShowFPS();
   
   if(showFps){ 
     stats.showPanel( 0 ); // 0: fps, 1: ms, 2: mb, 3+: custom

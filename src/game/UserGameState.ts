@@ -11,8 +11,9 @@ export interface IGameLevelHistory {
 
 export interface IGameUISettings {
     enableShadows: boolean,
-    shadowType: string;
-    enableBloom: boolean;
+    shadowType: string,
+    enableBloom: boolean,
+    showFps: boolean
 }
 
 export interface IUserGameState {
@@ -26,7 +27,7 @@ export interface IUserGameState {
 export class UserGameState {
 
     _gameState: IUserGameState;
-    readonly __gameStateKey = "LIGHT-TORCH-V001";
+    readonly __gameStateKey = "LIGHT-TORCH-V002";
 
     constructor(){
         let s = localStorage.getItem(this.__gameStateKey);
@@ -49,7 +50,8 @@ export class UserGameState {
             settings: {
                 enableBloom: true,
                 enableShadows: true,
-                shadowType: "pcf-soft"
+                shadowType: "pcf-soft",
+                showFps: false
             },
             levelsCompleted: []
         };

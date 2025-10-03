@@ -16,6 +16,7 @@ import { GameUI } from './GameUI';
 import { GameState } from './GameState';
 import { type IGameScore, UserGameState } from './UserGameState';
 import { ObjectUtils } from '../artifacts/ObjectUtils';
+import { GlobalLoader, RESOURCE } from '../utils/LoaderPopup';
 
 export type Nullable<T> = T | undefined | null;
 
@@ -167,10 +168,11 @@ export class GameEngine {
             light.shadow.camera.right = shadowCoord;
             light.shadow.camera.near = 1;
             light.shadow.camera.far = 50;
-            light.shadow.bias = 0.00001;
+            light.shadow.bias = 0.0001; // 0.00001;
 
-            light.shadow.mapSize.width = 2048;
-            light.shadow.mapSize.height = 2048;
+            const sz = 4096;
+            light.shadow.mapSize.width = sz;
+            light.shadow.mapSize.height = sz;
         }
 
         this._globalShadowLight = light;
@@ -211,11 +213,26 @@ export class GameEngine {
 
         this.__currentLevel = gs.currentLevel;
 
+        GlobalLoader?.ReportProgress({
+                    isComplete: false,
+                    resourceName: RESOURCE.LEVEL_CONFIG
+                });
+
+        GlobalLoader?.ReportProgress({
+                    isComplete: false,
+                    resourceName: RESOURCE.SCENE
+                });
+
         fetch(levelConfigFile).then((response) => {
             if(!response.ok) {
                 console.log("ERROR: can't load level config file - ", levelConfigFile);
                 return;
             }
+
+             GlobalLoader?.ReportProgress({
+                    isComplete: true,
+                    resourceName: RESOURCE.LEVEL_CONFIG
+                });
 
             return response.json();
         })
@@ -227,6 +244,10 @@ export class GameEngine {
             
             gltfLoader.load(levelObjectFile, (gltf) => {
                 console.log("Loaded level object successfully");
+                GlobalLoader?.ReportProgress({
+                    isComplete: true,
+                    resourceName: RESOURCE.SCENE
+                });
 
                 const root = gltf.scene;
                 this._scene.add(root);
@@ -254,13 +275,21 @@ export class GameEngine {
                 
             }, 
             (xhr) => {
-                // TODO: use loading progress to show a nice progress bar
-                console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' );
+                GlobalLoader?.ReportProgress({
+                    isComplete: false,
+                    loadedSize: xhr.loaded,
+                    targetSize: xhr.total,
+                    resourceName: RESOURCE.SCENE
+                });
             });
         })
         .catch((error) => {
             console.error("Fatal error : ", error);
         });
+    }
+
+    shouldShowFPS() {
+        return this._gameUserState.getState().settings.showFps;
     }
 
     /**

@@ -4,6 +4,7 @@ import fire_vs from '../shaders/fire_vs.glsl?raw';
 import fire_ps from '../shaders/fire_ps.glsl?raw';
 
 import fire_atlas from '../texture/fire_atlas.png';
+import { GlobalLoader, RESOURCE } from '../utils/LoaderPopup';
 
 interface IFireParticleDef {
     /**
@@ -43,6 +44,10 @@ export class Fire {
     _fireGroupObj: THREE.Group;
 
     constructor() {
+        GlobalLoader?.ReportProgress({
+            isComplete: false,
+            resourceName: RESOURCE.TEXTURE_FIRE
+        });
         const fireImg = new THREE.TextureLoader().load(fire_atlas);
         this._material = new THREE.ShaderMaterial(
             {
@@ -98,6 +103,11 @@ export class Fire {
         this._fireLight.position.set(0, 0.25, 0);
         this._fireGroupObj.add(this._fireLight);
         this._fireGroupObj.name = "FIRE";
+
+        GlobalLoader?.ReportProgress({
+            isComplete: true,
+            resourceName: RESOURCE.TEXTURE_FIRE
+        });
     }
 
     get RenderArtifact() {
