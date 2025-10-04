@@ -59,7 +59,7 @@ class LoaderCore
         return LoaderCore.instance;
     }
 
-    public ShowLoader(clearOldEvents: boolean = true)
+    public ShowLoader()
     {
         this.__loaderEl.style.display = 'block';
     }

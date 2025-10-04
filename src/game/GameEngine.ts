@@ -170,7 +170,7 @@ export class GameEngine {
             light.shadow.camera.far = 50;
             light.shadow.bias = 0.0001; // 0.00001;
 
-            const sz = 4096;
+            const sz = 1024;
             light.shadow.mapSize.width = sz;
             light.shadow.mapSize.height = sz;
         }
