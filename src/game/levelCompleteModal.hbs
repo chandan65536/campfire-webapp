@@ -1,0 +1,41 @@
+<div style="margin-bottom: 20px;">
+    Congratulations! You completed level <span>{{currentLevel}}</span>.
+</div>
+<div class="border border-success" style="padding: 5px; margin: 5px; border-radius: 10px;">
+    <table class="table table-sm">
+        <tbody>
+            <tr>
+                <td style="text-wrap: nowrap;">Gems Used</td>
+                <td>{{levelsCompleted.[0].score.diamondsUsed}}</td>
+            </tr>
+            <tr>
+                <td style="text-wrap: nowrap;">Light path distance</td>
+                <td>{{levelsCompleted.[0].score.pathLength}}</td>
+            </tr>
+            <tr>
+                <td style="text-wrap: nowrap;">Completed On</td>
+                <td>{{levelsCompleted.[0].completedOn}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="text-center" style="margin: 30px 0 30px 0;">
+    <span>Player Name :</span>
+    <div style="display: inline-block;">
+        <input style="display: inline-block;" type="text" id="game-setting--player-name" class="form-control" value="{{playerName}}"/>
+    </div>
+    <span style="display: inline-block; font-weight: bold; color: green; visibility: hidden;" id="game-setting--player-name-save-success">&checkmark;</span>
+    <button type="button" class="btn btn-secondary btn-sm game-action--button" data-action="player-name-update">Update</button>
+</div>
+<div>
+    {{#if isFinalLevel}}
+    <div class="text-center">
+        <div style="padding-bottom: 10px;">&#9885;&#9885;&#9885; THE END &#9885;&#9885;&#9885;</div>
+        <div style="font-family: consolas; font-size:0.75em;">
+            Thank you for embarking on this adventure! We hope you enjoyed every moment of it.
+            If you had a blast, don't keep it to yourself! Share the game with your friends and spread the joy!
+            Until next time, happy gaming!
+        </div>
+    </div>
+    {{/if}}
+</div>

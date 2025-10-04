@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <!-- region favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Campfire</title>
+  </head>
+  <body class="p-0 m-0 border-0 bd-example m-0 border-0">
+    <div id="loader" style="position: fixed;
+                            display: block;
+                            width: 100%;
+                            height: 100%;
+                            top: 0;
+                            left: 0;
+                            text-align: center;
+                            background-color: rgba(255, 255, 255, 0.5);
+                            backdrop-filter: blur(5px);
+                            z-index: 99;">
+      <div style="width: 100%;
+                  position: absolute;
+                  top: 30%;
+                  backdrop-filter: none;
+                  background-color: white;
+                  box-shadow: 0px -25px 30px white, 0px 25px 30px white;">
+        <div style="font-size: 4em;">
+          <div style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">CAMPFIRE</div>
+          <div>
+            <div class="loader-fire-img">&#x1F525;</div>
+            <style>
+              .loader-fire-img {
+                width: 100px;
+                height: 100px;
+                display: inline-block;
+                aspect-ratio: 1;
+                border-radius: 50%;
+                animation: fire-glow 0.75s ease-out infinite;
+              }
+              @keyframes fire-glow {
+                  0%  { 
+                        box-shadow: 0 0 0 0 #ffd231ff; 
+                        background-color: #ffd231ff;
+                      }
+                  100% { 
+                        box-shadow: 0 0 0 30px #d7510300;
+                        background-color: #d7510300; 
+                      }
+              }
+            </style>
+          </div>
+        </div>
+        <div id="loader--status" style="font-size: 1.5em;
+                                        padding-top: 10px;
+                                        font-family: monospace;
+                                        font-weight: bold;" >
+          Loading ...
+        </div>
+        <div style="width: 80%;
+                    background-color: #eee;
+                    border-radius: 30px;
+                    overflow: hidden;
+                    margin: 20px auto;
+                    top: 50%;
+                    left: 10%;
+                    border: 2px solid #495057;
+                    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+          <div id="loader--width-by-perc" style="height: 30px;
+                    width: 5%;
+                    background-color: #4caf50;
+                    transition: width 0.3s ease;"></div>
+        </div>
+      </div>
+      
+      
+    </div>
+    <nav class="navbar navbar-expand navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
+      <div class="container-fluid">
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link active" href="#"><span>&#128293;</span> Campfire</a>
+            </li>
+            <li class="nav-item">
+              <button class="btn btn-outline-success" 
+                data-bs-toggle="modal" data-bs-target="#gameHelpModal">Help</button>
+            </li>
+            <li class="nav-item dropdown" id="game-state--level-nav">
+              
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div id="mainContent">
+      <canvas class="webgl"></canvas>
+    </div>
+    <script type="module" src="/src/Campfire.ts"></script>
+
+    <!-- Modal for Next Level -->
+    <div class="modal fade" id="gameLevelCompleteModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="staticBackdropLabel">Level Completed</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary game-action--button" data-action="main-menu" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary game-action--button" data-action="next-level" data-bs-dismiss="modal">Next Level</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--Modal for help-->
+    <div class="modal fade" id="gameHelpModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5 text-center w-100" id="staticBackdropLabel">&#x1F525; Campfire &#x1F525;</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            
+          </div>
+          <div class="modal-footer">
+            <!-- game-action--button -->
+            <button type="button" class="btn btn-primary game-action--button" data-action="close" data-bs-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--Modal for completing all levels-->
+
+  </body>
+</html>
