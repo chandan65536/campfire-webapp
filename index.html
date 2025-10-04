@@ -28,9 +28,38 @@
                             z-index: 99;">
       <div style="width: 100%;
                   position: absolute;
-                  top: 40%">
-        <div id="loader--status" style="font-size: 2em;
-                                        padding-bottom: 50px;
+                  top: 30%;
+                  backdrop-filter: none;
+                  background-color: white;
+                  box-shadow: 0px -25px 30px white, 0px 25px 30px white;">
+        <div style="font-size: 4em;">
+          <div style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">CAMPFIRE</div>
+          <div>
+            <div class="loader-fire-img">&#x1F525;</div>
+            <style>
+              .loader-fire-img {
+                width: 100px;
+                height: 100px;
+                display: inline-block;
+                aspect-ratio: 1;
+                border-radius: 50%;
+                animation: fire-glow 0.75s ease-out infinite;
+              }
+              @keyframes fire-glow {
+                  0%  { 
+                        box-shadow: 0 0 0 0 #ffd231ff; 
+                        background-color: #ffd231ff;
+                      }
+                  100% { 
+                        box-shadow: 0 0 0 30px #d7510300;
+                        background-color: #d7510300; 
+                      }
+              }
+            </style>
+          </div>
+        </div>
+        <div id="loader--status" style="font-size: 1.5em;
+                                        padding-top: 10px;
                                         font-family: monospace;
                                         font-weight: bold;" >
           Loading ...
@@ -40,7 +69,6 @@
                     border-radius: 30px;
                     overflow: hidden;
                     margin: 20px auto;
-                    position: absolute;
                     top: 50%;
                     left: 10%;
                     border: 2px solid #495057;
@@ -101,7 +129,7 @@
       <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
         <div class="modal-content">
           <div class="modal-header">
-            <h1 class="modal-title fs-5" id="staticBackdropLabel">Welcome</h1>
+            <h1 class="modal-title fs-5 text-center w-100" id="staticBackdropLabel">&#x1F525; Campfire &#x1F525;</h1>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
